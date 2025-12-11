@@ -68,7 +68,7 @@
                                 Estructura Cooperativa
                             </h2>
                             <p class="text-gray-600">
-                                Organización mutualista de trabajadores vigilantes
+                                Organización Cooperativa de trabajadores vigilantes
                             </p>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                                 180
                             </h3>
                             <p class="text-gray-600 text-sm">
-                                Gentes que dan fe de nuestro servicio
+                                Clientes que dan fe de nuestro servicio
                             </p>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="h-20 w-full" id="chart-container"></div>
+                    <div class="h-32 w-full" id="chart-container"></div>
                 </div>
             </div>
             
@@ -182,19 +182,19 @@
                                 Centro Comercial Unicentro Pereira
                             </span>
                         </div>
-                        <div class="client-type p-4 rounded-lg flex items-center" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                        <div class="client-type bg-blue-50 p-4 rounded-lg border border-blue-200 flex items-center">
                             <i class="fas fa-home text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700">
                                 Conjunto Residencial Teka
                             </span>
                         </div>
-                        <div class="client-type p-4 rounded-lg flex items-center" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                        <div class="client-type bg-blue-50 p-4 rounded-lg border border-blue-200 flex items-center">
                             <i class="fas fa-industry text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700">
                                 Aluminos de Colombia
                             </span>
                         </div>
-                        <div class="client-type p-4 rounded-lg flex items-center" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                        <div class="client-type bg-blue-50 p-4 rounded-lg border border-blue-200 flex items-center">
                             <i class="fas fa-home text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700">
                                 Conjunto Residencial Bambú
@@ -207,12 +207,12 @@
     </div>
     
     <script>
-        // Simple D3.js visualization for regional recognition
+        // Gráfico de reconocimiento regional
         const data = [
-            { category: "Centros Comerciales", value: 4 },
-            { category: "Clínicas", value: 1 },
-            { category: "Conjuntos Residenciales", value: 2 },
-            { category: "Empresas", value: 1 }
+            { category: "Conjuntos Residenciales", value: 80 },
+            { category: "Centros Comerciales", value: 8 },
+            { category: "Clínicas", value: 6 },
+            { category: "Empresas", value: 6 }
         ];
         
         const width = document.getElementById('chart-container').offsetWidth;
@@ -225,17 +225,24 @@
             
         const color = d3.scaleOrdinal()
             .domain(data.map(d => d.category))
-            .range(["#0e2455", "#4a6fa5", "#6b8bc0", "#d4af37"]);
+            .range(["#6b8bc0", "#0e2455", "#4a6fa5", "#d4af37"]);
             
         const pie = d3.pie()
             .value(d => d.value);
             
+        const radius = Math.min(width, height) / 2 - 20;
         const arc = d3.arc()
             .innerRadius(0)
-            .outerRadius(Math.min(width, height) / 2 - 10);
+            .outerRadius(radius);
             
+        // Arco para etiquetas de porcentaje
+        const arcLabel = d3.arc()
+            .innerRadius(radius + 5)
+            .outerRadius(radius + 5);
+            
+        const centerX = radius + 10;
         const g = svg.append("g")
-            .attr("transform", `translate(${width/2}, ${height/2})`);
+            .attr("transform", `translate(${centerX}, ${height/2})`);
             
         const arcs = g.selectAll("arc")
             .data(pie(data))
@@ -248,25 +255,66 @@
             .attr("stroke", "white")
             .style("stroke-width", "2px");
             
-        // Add a legend
+        // Calculate total for percentages
+        const total = d3.sum(data, d => d.value);
+        
+        // Add a legend with percentages - centrar verticalmente
+        const legendX = centerX + radius + 25;
+        const legendWidth = width - legendX - 10;
         const legend = svg.append("g")
-            .attr("transform", `translate(${width - 150}, 20)`);
+            .attr("transform", `translate(${Math.min(legendX, width - 5)}, 0)`);
+        
+        // Calcular altura total de la leyenda para centrarla
+        const itemHeight = 18;
+        const totalLegendHeight = data.length * itemHeight;
+        const legendStartY = (height - totalLegendHeight) / 2;
             
         data.forEach((d, i) => {
             const legendRow = legend.append("g")
-                .attr("transform", `translate(0, ${i * 20})`);
+                .attr("transform", `translate(0, ${legendStartY + i * itemHeight})`);
                 
             legendRow.append("rect")
                 .attr("width", 10)
                 .attr("height", 10)
-                .attr("fill", color(d.category));
+                .attr("y", 4)
+                .attr("fill", color(d.category))
+                .attr("rx", 2);
                 
-            legendRow.append("text")
-                .attr("x", 20)
-                .attr("y", 10)
-                .attr("text-anchor", "start")
-                .style("font-size", "12px")
-                .text(d.category);
+            const percentage = ((d.value / total) * 100).toFixed(0);
+            const labelText = `${d.category} ${percentage}%`;
+            
+            // Calcular si el texto necesita múltiples líneas
+            const maxWidth = legendWidth - 20;
+            const words = labelText.split(' ');
+            let lines = [];
+            let currentLine = '';
+            
+            words.forEach(word => {
+                const testLine = currentLine ? currentLine + ' ' + word : word;
+                // Estimación aproximada: 5.5px por carácter
+                if (testLine.length * 5.5 > maxWidth && currentLine) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = testLine;
+                }
+            });
+            if (currentLine) lines.push(currentLine);
+            
+            // Centrar verticalmente cada línea de texto
+            const lineStartY = 9 - (lines.length - 1) * 6;
+            
+            // Dibujar las líneas de texto
+            lines.forEach((line, lineIdx) => {
+                legendRow.append("text")
+                    .attr("x", 15)
+                    .attr("y", lineStartY + (lineIdx * 12))
+                    .attr("text-anchor", "start")
+                    .style("font-size", "10px")
+                    .style("font-weight", "500")
+                    .style("fill", "#374151")
+                    .text(line);
+            });
         });
     </script>
 </body>

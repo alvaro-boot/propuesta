@@ -33,10 +33,17 @@
         }
         .benefit-item {
             transition: all 0.3s ease;
+            min-width: 0;
         }
         .benefit-item:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-item span {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            flex: 1;
+            min-width: 0;
         }
     </style>
 </head>
@@ -77,41 +84,100 @@
             <div class="w-3/5 pl-4 overflow-y-auto">
                 <div class="bg-white rounded-lg shadow-lg p-4 h-full">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-gift text-3xl mr-3" style="color: var(--cootravir-blue);"></i>
-                        <h2 class="text-2xl font-bold" style="color: var(--cootravir-blue);">Herramientas de Apoyo a la Seguridad que NO generan costo</h2>
+                        <i class="fas fa-gift text-3xl mr-3 flex-shrink-0" style="color: var(--cootravir-blue);"></i>
+                        <h2 class="text-xl font-bold flex-1" style="color: var(--cootravir-blue);">Herramientas de Apoyo a la Seguridad que NO generan costo</h2>
                     </div>
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="grid grid-cols-2 gap-3 overflow-y-auto" style="max-height: calc(100% - 80px);">
                         <div class="benefit-item p-3 rounded-lg flex items-start" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
-                            <i class="fas fa-user-tie text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
-                            <span class="text-gray-700 text-sm">Complementar Coordinador In House con 2 horas diurnas + 4 horas sábados</span>
+                            <i class="fas fa-user-tie text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Complementar el Coordinador Operativo In House con 2 horas diurnas más de lunes a viernes y 4 horas diurnas más los sábados</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 1</span>
+                            </div>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-mobile-alt text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
-                            <span class="text-gray-700 text-sm">Celulares para Central de Monitoreo y Coordinador Operativo</span>
+                            <i class="fas fa-mobile-alt text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Celulares para la Central de Monitoreo y el Coordinador Operativo In House para que tenga comunicación con la Administración y Cootravir C.T.A</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 2</span>
+                            </div>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-exclamation-circle text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
-                            <span class="text-gray-700 text-sm">Aplicación de Pánicos para locales y consultorios</span>
+                            <i class="fas fa-exclamation-circle text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Aplicación de Pánicos para locales y consultorios</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 236</span>
+                            </div>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-doorbell text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
-                            <span class="text-gray-700 text-sm">Citófono en parqueadero para comunicación en horario nocturno</span>
+                            <i class="fas fa-doorbell text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Instalación de citófono en parqueadero para comunicación con guarda de seguridad en horario nocturno para apertura de puerta</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 1</span>
+                            </div>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-user-shield text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
-                            <span class="text-gray-700 text-sm">Coordinador de seguridad y/o Ejecutivo de cuenta</span>
+                            <i class="fas fa-user-shield text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Coordinador de seguridad y/o Ejecutivo de cuenta</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 1</span>
+                            </div>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-broadcast-tower text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
-                            <span class="text-gray-700 text-sm">Radios de comunicación guardas de seguridad</span>
+                            <i class="fas fa-broadcast-tower text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Radios de comunicación guardas de seguridad</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 9</span>
+                            </div>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-map-marker-alt text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
-                            <span class="text-gray-700 text-sm">Puntos de marcación de control de rondas</span>
+                            <i class="fas fa-exchange-alt text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Radios de comunicación en calidad de préstamo Administración</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 3</span>
+                            </div>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-file-alt text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
-                            <span class="text-gray-700 text-sm">Minuta virtual con enlace a administración</span>
+                            <i class="fas fa-map-marker-alt text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Puntos de marcación de control de rondas por medio de marca puntos</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 20</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-file-alt text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Minuta virtual con enlace a la administración para información en tiempo real sobre apertura y cierres de los locales</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 1</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-headset text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Apoyo de supervisor en caso de ser requerido por alguna novedad</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 1</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-search text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Estudio de seguridad de las instalaciones</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 1</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-video text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Análisis del CCTV existente para diagnóstico</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 1</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-shield-alt text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Pólizas de Responsabilidad Civil Extracontractual</span>
+                                <span class="text-gray-600 text-xs font-semibold mt-1 block">Cantidad: 2</span>
+                            </div>
                         </div>
                     </div>
                 </div>
