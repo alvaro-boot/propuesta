@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Apoyos Adicionales y Beneficios Sin Costo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+    <style>
+        body {
+            width: 1280px;
+            height: 720px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+        }
+        .benefit-item {
+            transition: all 0.3s ease;
+        }
+        .benefit-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide bg-gradient-to-r from-blue-50 to-blue-100 flex flex-col">
+        <!-- Header with logo and title -->
+        <div class="bg-blue-800 text-white py-4 px-8 flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Apoyos Adicionales y Beneficios Sin Costo</h1>
+            <div class="flex items-center">
+                <span class="text-xl font-semibold mr-2">COOTRAVIR C.T.A.</span>
+                <span class="bg-white text-blue-800 px-3 py-1 rounded-full text-sm font-bold">SEGURIDAD PRIVADA</span>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="flex flex-1 p-5 overflow-hidden">
+            <!-- Left column - Reinversión en Apoyos -->
+            <div class="w-2/5 pr-4 overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-lg p-4 h-full">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-sync-alt text-blue-700 text-3xl mr-3"></i>
+                        <h2 class="text-2xl font-bold text-blue-800">Reinversión en Apoyos a la Seguridad</h2>
+                    </div>
+                    <p class="text-gray-600 mb-3">Según la duración del contrato, le ofrecemos valores adicionales para invertir en tecnología o para uso libre del cliente.</p>
+                    <div class="mb-4">
+                        <div class="h-40 w-full" id="chart-container"></div>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                        <p class="text-gray-700 text-sm">
+                            <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                            Nota: El valor de apoyo se recomienda utilizar en tecnología, con opción de libre destinación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right column - Beneficios sin costo -->
+            <div class="w-3/5 pl-4 overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-lg p-4 h-full">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-gift text-blue-700 text-3xl mr-3"></i>
+                        <h2 class="text-2xl font-bold text-blue-800">Herramientas de Apoyo a la Seguridad que NO generan costo</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-user-tie text-blue-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-sm">Complementar Coordinador In House con 2 horas diurnas + 4 horas sábados</span>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-mobile-alt text-blue-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-sm">Celulares para Central de Monitoreo y Coordinador Operativo</span>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-exclamation-circle text-blue-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-sm">Aplicación de Pánicos para locales y consultorios</span>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-doorbell text-blue-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-sm">Citófono en parqueadero para comunicación en horario nocturno</span>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-user-shield text-blue-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-sm">Coordinador de seguridad y/o Ejecutivo de cuenta</span>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-broadcast-tower text-blue-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-sm">Radios de comunicación guardas de seguridad</span>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-sm">Puntos de marcación de control de rondas</span>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-file-alt text-blue-600 text-xl mr-3 mt-1"></i>
+                            <span class="text-gray-700 text-sm">Minuta virtual con enlace a administración</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Gráfico de barras mejorado para reinversión
+        const data = [
+            { category: "1 año", value: 40000000, fullLabel: "Contrato a 1 año" },
+            { category: "2 años", value: 90000000, fullLabel: "Contrato a 2 años" },
+            { category: "3 años", value: 140000000, fullLabel: "Contrato a 3 años" }
+        ];
+        
+        const width = document.getElementById('chart-container').offsetWidth;
+        const height = document.getElementById('chart-container').offsetHeight;
+        
+        const svg = d3.select("#chart-container")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+            
+        const margin = { top: 30, right: 30, bottom: 50, left: 70 };
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
+        
+        const g = svg.append("g")
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+            
+        // Escala X
+        const x = d3.scaleBand()
+            .domain(data.map(d => d.category))
+            .range([0, innerWidth])
+            .padding(0.4);
+            
+        // Escala Y con dominio mejorado
+        const maxValue = d3.max(data, d => d.value);
+        const y = d3.scaleLinear()
+            .domain([0, maxValue * 1.1])
+            .range([innerHeight, 0])
+            .nice();
+            
+        // Gradientes para las barras
+        const defs = svg.append("defs");
+        const gradient1 = defs.append("linearGradient")
+            .attr("id", "gradient1")
+            .attr("x1", "0%")
+            .attr("y1", "0%")
+            .attr("x2", "0%")
+            .attr("y2", "100%");
+        gradient1.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "#3b82f6");
+        gradient1.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#1e40af");
+            
+        const gradient2 = defs.append("linearGradient")
+            .attr("id", "gradient2")
+            .attr("x1", "0%")
+            .attr("y1", "0%")
+            .attr("x2", "0%")
+            .attr("y2", "100%");
+        gradient2.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "#60a5fa");
+        gradient2.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#2563eb");
+            
+        const gradient3 = defs.append("linearGradient")
+            .attr("id", "gradient3")
+            .attr("x1", "0%")
+            .attr("y1", "0%")
+            .attr("x2", "0%")
+            .attr("y2", "100%");
+        gradient3.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "#93c5fd");
+        gradient3.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#3b82f6");
+        
+        // Eje X
+        g.append("g")
+            .attr("transform", `translate(0, ${innerHeight})`)
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .style("font-size", "13px")
+            .style("font-weight", "600")
+            .style("fill", "#374151");
+        
+        // Eje Y con formato mejorado
+        g.append("g")
+            .call(d3.axisLeft(y)
+                .tickFormat(d => `$${d/1000000}M`)
+                .ticks(8))
+            .style("font-size", "11px")
+            .style("color", "#6b7280")
+            .selectAll("line")
+            .style("stroke", "#e5e7eb")
+            .style("stroke-dasharray", "2,2");
+        
+        // Línea de cuadrícula horizontal
+        g.append("g")
+            .attr("class", "grid")
+            .call(d3.axisLeft(y)
+                .tickFormat("")
+                .tickSize(-innerWidth))
+            .selectAll("line")
+            .style("stroke", "#e5e7eb")
+            .style("stroke-dasharray", "2,2")
+            .style("opacity", 0.5);
+            
+        // Barras con gradientes y efectos
+        const bars = g.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", d => x(d.category))
+            .attr("y", innerHeight)
+            .attr("width", x.bandwidth())
+            .attr("height", 0)
+            .attr("fill", (d, i) => {
+                const gradients = ["url(#gradient1)", "url(#gradient2)", "url(#gradient3)"];
+                return gradients[i];
+            })
+            .attr("rx", 6)
+            .attr("ry", 6)
+            .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.1))");
+        
+        // Animación de las barras
+        bars.transition()
+            .duration(1000)
+            .delay((d, i) => i * 200)
+            .attr("y", d => y(d.value))
+            .attr("height", d => innerHeight - y(d.value));
+            
+        // Etiquetas de valor mejoradas
+        const labels = g.selectAll(".value-label")
+            .data(data)
+            .enter().append("text")
+            .attr("class", "value-label")
+            .attr("x", d => x(d.category) + x.bandwidth() / 2)
+            .attr("y", innerHeight)
+            .attr("text-anchor", "middle")
+            .style("font-size", "13px")
+            .style("font-weight", "700")
+            .style("fill", "#1e40af")
+            .style("opacity", 0);
+        
+        labels.transition()
+            .duration(1000)
+            .delay((d, i) => i * 200 + 500)
+            .attr("y", d => y(d.value) - 8)
+            .style("opacity", 1)
+            .text(d => `$${(d.value/1000000).toFixed(0)}M`);
+        
+        // Etiquetas completas debajo de las barras
+        g.selectAll(".full-label")
+            .data(data)
+            .enter().append("text")
+            .attr("class", "full-label")
+            .attr("x", d => x(d.category) + x.bandwidth() / 2)
+            .attr("y", innerHeight + 25)
+            .attr("text-anchor", "middle")
+            .style("font-size", "10px")
+            .style("font-weight", "500")
+            .style("fill", "#6b7280")
+            .text(d => d.fullLabel);
+    </script>
+</body>
+</html>

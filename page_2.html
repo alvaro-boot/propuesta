@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Estructura Operativa y Reconocimiento Regional</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+    <style>
+        :root {
+            --cootravir-blue: #0e2455;
+            --cootravir-blue-light: #4a6fa5;
+            --cootravir-blue-lighter: #6b8bc0;
+            --cootravir-blue-darker: #0f1d2f;
+            --cootravir-gold: #d4af37;
+            --cootravir-gold-light: #e8c96f;
+            --cootravir-gold-lighter: #f4e5b8;
+            --cootravir-gold-darker: #dba425;
+        }
+        
+        body {
+            width: 1280px;
+            height: 720px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+        }
+        .client-type {
+            transition: all 0.3s ease;
+        }
+        .client-type:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col" style="background: linear-gradient(to right, #f4e5b8, #e8c96f);">
+        <!-- Header with logo and title -->
+        <div class="text-white py-4 px-8 flex justify-between items-center" style="background-color: var(--cootravir-blue);">
+            <h1 class="text-3xl font-bold">
+                Estructura Operativa y Reconocimiento Regional
+            </h1>
+            <div class="flex items-center">
+                <span class="text-xl font-semibold mr-2">
+                    COOTRAVIR C.T.A.
+                </span>
+                <span class="bg-white px-3 py-1 rounded-full text-sm font-bold" style="color: var(--cootravir-blue);">
+                    SEGURIDAD PRIVADA
+                </span>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="flex flex-1 p-6 overflow-hidden">
+            <!-- Left column - Structure and recognition -->
+            <div class="w-1/2 pr-6 flex flex-col overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-lg p-4 mb-3">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-4xl mr-4" style="color: var(--cootravir-blue);"></i>
+                        <div>
+                            <h2 class="text-2xl font-bold" style="color: var(--cootravir-blue);">
+                                Estructura Cooperativa
+                            </h2>
+                            <p class="text-gray-600">
+                                Organización mutualista de trabajadores vigilantes
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex justify-around text-center">
+                        <div class="p-3">
+                            <i class="fas fa-users text-3xl mb-2" style="color: var(--cootravir-blue-light);"></i>
+                            <h3 class="text-2xl font-bold" style="color: var(--cootravir-blue);">
+                                1.100
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Trabajadores Asociados
+                            </p>
+                        </div>
+                        <div class="p-3">
+                            <i class="fas fa-handshake text-3xl mb-2" style="color: var(--cootravir-blue-light);"></i>
+                            <h3 class="text-2xl font-bold" style="color: var(--cootravir-blue);">
+                                180
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                Gentes que dan fe de nuestro servicio
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-3 mb-3">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-map-marker-alt text-2xl mr-3" style="color: var(--cootravir-blue);"></i>
+                        <div>
+                            <h2 class="text-xl font-bold" style="color: var(--cootravir-blue);">Sede Principal</h2>
+                            <p class="text-gray-600 text-sm">Cl. 8 Este #12b-20, Pereira, Risaralda</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="images/edificio-cootravir.jpeg" alt="Fachada COOTRAVIR" class="rounded-lg shadow-md max-h-40 w-full object-cover" onerror="this.style.display='none'"/>
+                    </div>
+                </div>
+                
+                <!-- Team photo section -->
+                <div class="bg-white rounded-lg shadow-lg p-3 mb-3">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-users text-2xl mr-3" style="color: var(--cootravir-blue);"></i>
+                        <div>
+                            <h2 class="text-xl font-bold" style="color: var(--cootravir-blue);">Nuestro Equipo</h2>
+                            <p class="text-gray-600 text-sm">Profesionales comprometidos con la seguridad</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="images/equipo-unicentro.jpeg" alt="Equipo de seguridad COOTRAVIR" class="rounded-lg shadow-md max-h-40 w-full object-cover" onerror="this.style.display='none'"/>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-3">
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-award text-2xl mr-3" style="color: var(--cootravir-blue);"></i>
+                        <div>
+                            <h2 class="text-xl font-bold" style="color: var(--cootravir-blue);">
+                                Reconocimiento Regional
+                            </h2>
+                            <p class="text-gray-600 text-sm">
+                                Presencia consolidada en la región
+                            </p>
+                        </div>
+                    </div>
+                    <div class="h-20 w-full" id="chart-container"></div>
+                </div>
+            </div>
+            
+            <!-- Right column - Client types -->
+            <div class="w-1/2 pl-6 overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-lg p-4 h-full">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-briefcase text-4xl mr-4" style="color: var(--cootravir-blue);"></i>
+                        <div>
+                            <h2 class="text-2xl font-bold" style="color: var(--cootravir-blue);">
+                                Clientes Servidos
+                            </h2>
+                            <p class="text-gray-600">
+                                Centros comerciales, clínicas y conjuntos residenciales
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="client-type p-4 rounded-lg flex items-center" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <i class="fas fa-shopping-cart text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
+                            <span class="text-gray-700">
+                                MegaCentro Pinares PH
+                            </span>
+                        </div>
+                        <div class="client-type bg-blue-50 p-4 rounded-lg border border-blue-200 flex items-center">
+                            <i class="fas fa-hospital text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
+                            <span class="text-gray-700">
+                                Clínica Fracturas y Fracturas
+                            </span>
+                        </div>
+                        <div class="client-type bg-blue-50 p-4 rounded-lg border border-blue-200 flex items-center">
+                            <i class="fas fa-store text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
+                            <span class="text-gray-700">
+                                Centro Comercial Bolívar Plaza
+                            </span>
+                        </div>
+                        <div class="client-type bg-blue-50 p-4 rounded-lg border border-blue-200 flex items-center">
+                            <i class="fas fa-shopping-basket text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
+                            <span class="text-gray-700">
+                                Mercamas
+                            </span>
+                        </div>
+                        <div class="client-type bg-blue-50 p-4 rounded-lg border border-blue-200 flex items-center">
+                            <i class="fas fa-building text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
+                            <span class="text-gray-700">
+                                Centro Comercial Unicentro Pereira
+                            </span>
+                        </div>
+                        <div class="client-type p-4 rounded-lg flex items-center" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <i class="fas fa-home text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
+                            <span class="text-gray-700">
+                                Conjunto Residencial Teka
+                            </span>
+                        </div>
+                        <div class="client-type p-4 rounded-lg flex items-center" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <i class="fas fa-industry text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
+                            <span class="text-gray-700">
+                                Aluminos de Colombia
+                            </span>
+                        </div>
+                        <div class="client-type p-4 rounded-lg flex items-center" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <i class="fas fa-home text-2xl mr-3" style="color: var(--cootravir-blue-light);"></i>
+                            <span class="text-gray-700">
+                                Conjunto Residencial Bambú
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple D3.js visualization for regional recognition
+        const data = [
+            { category: "Centros Comerciales", value: 4 },
+            { category: "Clínicas", value: 1 },
+            { category: "Conjuntos Residenciales", value: 2 },
+            { category: "Empresas", value: 1 }
+        ];
+        
+        const width = document.getElementById('chart-container').offsetWidth;
+        const height = document.getElementById('chart-container').offsetHeight;
+        
+        const svg = d3.select("#chart-container")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+            
+        const color = d3.scaleOrdinal()
+            .domain(data.map(d => d.category))
+            .range(["#0e2455", "#4a6fa5", "#6b8bc0", "#d4af37"]);
+            
+        const pie = d3.pie()
+            .value(d => d.value);
+            
+        const arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(Math.min(width, height) / 2 - 10);
+            
+        const g = svg.append("g")
+            .attr("transform", `translate(${width/2}, ${height/2})`);
+            
+        const arcs = g.selectAll("arc")
+            .data(pie(data))
+            .enter()
+            .append("g");
+            
+        arcs.append("path")
+            .attr("d", arc)
+            .attr("fill", d => color(d.data.category))
+            .attr("stroke", "white")
+            .style("stroke-width", "2px");
+            
+        // Add a legend
+        const legend = svg.append("g")
+            .attr("transform", `translate(${width - 150}, 20)`);
+            
+        data.forEach((d, i) => {
+            const legendRow = legend.append("g")
+                .attr("transform", `translate(0, ${i * 20})`);
+                
+            legendRow.append("rect")
+                .attr("width", 10)
+                .attr("height", 10)
+                .attr("fill", color(d.category));
+                
+            legendRow.append("text")
+                .attr("x", 20)
+                .attr("y", 10)
+                .attr("text-anchor", "start")
+                .style("font-size", "12px")
+                .text(d.category);
+        });
+    </script>
+</body>
+</html>
