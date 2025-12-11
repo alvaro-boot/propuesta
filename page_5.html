@@ -267,8 +267,12 @@
         labels.transition()
             .duration(1000)
             .delay((d, i) => i * 200 + 500)
-            .attr("y", d => y(d.value) - 8)
+            .attr("y", d => y(d.value) - 12)
             .style("opacity", 1)
+            .style("stroke", "white")
+            .style("stroke-width", "3px")
+            .style("stroke-linejoin", "round")
+            .style("paint-order", "stroke fill")
             .text(d => `$${(d.value/1000000).toFixed(0)}M`);
         
         // Etiquetas completas debajo de las barras

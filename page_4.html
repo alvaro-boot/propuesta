@@ -70,9 +70,9 @@
                 </div>
                 
                 <!-- Chart visualization -->
-                <div class="bg-white rounded-lg shadow-lg p-3 flex-1">
+                <div class="bg-white rounded-lg shadow-lg p-3 flex-1 flex flex-col">
                     <h3 class="text-lg font-bold mb-1" style="color: var(--cootravir-blue);">Distribución de Servicios</h3>
-                    <div class="h-full w-full" id="chart-container"></div>
+                    <div class="flex-1 w-full overflow-y-auto" id="chart-container"></div>
                 </div>
             </div>
             
@@ -260,18 +260,25 @@
         ];
         
         const total = 68972343; // Total: $ 68.972.343
-        const width = document.getElementById('chart-container').offsetWidth;
-        const height = document.getElementById('chart-container').offsetHeight;
+        const container = document.getElementById('chart-container');
+        const width = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
+        
+        // Calcular height del SVG para incluir gráfico y leyenda completa
+        const legendItems = data.length;
+        const estimatedLegendHeight = Math.ceil(legendItems / 2) * 14 + 80; // Altura estimada de la leyenda
+        const estimatedChartHeight = Math.min(width, containerHeight);
+        const estimatedHeight = estimatedChartHeight + estimatedLegendHeight;
         
         const svg = d3.select("#chart-container")
             .append("svg")
             .attr("width", width)
-            .attr("height", height);
+            .attr("height", Math.max(containerHeight, estimatedHeight));
         
         // Radio del círculo (centrado, dejando espacio abajo para la leyenda)
-        const radius = Math.min(width, height) / 2 - 80;
+        const radius = Math.min(width, containerHeight) / 2 - 90;
         const centerX = width / 2; // Centrado
-        const centerY = height / 2 - 30; // Mover un poco arriba para dejar espacio a la leyenda
+        const centerY = containerHeight / 2 - 50; // Mover más arriba para dejar espacio a la leyenda
         
         // Colores corporativos para las secciones
         const color = d3.scaleOrdinal()
@@ -347,7 +354,7 @@
         // Ordenar datos por valor descendente para la leyenda
         const sortedData = [...data].sort((a, b) => b.value - a.value);
         
-        const legendStartY = centerY + radius + 40;
+        const legendStartY = centerY + radius + 50;
         const legendColumnWidth = width / 2;
         const itemsPerColumn = Math.ceil(sortedData.length / 2);
         
@@ -412,6 +419,12 @@
                 const shortName = d.name.length > 28 ? d.name.substring(0, 25) + "..." : d.name;
                 return `${shortName} (${percentage}%)`;
             });
+        
+        // Ajustar height del SVG para incluir toda la leyenda
+        const finalLegendHeight = itemsPerColumn * 14;
+        const requiredHeight = legendStartY + finalLegendHeight + 20;
+        const currentHeight = parseFloat(svg.attr("height"));
+        svg.attr("height", Math.max(currentHeight, requiredHeight));
     </script>
 </body>
 </html>
