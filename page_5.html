@@ -8,6 +8,17 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
     <style>
+        :root {
+            --cootravir-blue: #0e2455;
+            --cootravir-blue-light: #4a6fa5;
+            --cootravir-blue-lighter: #6b8bc0;
+            --cootravir-blue-darker: #0f1d2f;
+            --cootravir-gold: #d4af37;
+            --cootravir-gold-light: #e8c96f;
+            --cootravir-gold-lighter: #f4e5b8;
+            --cootravir-gold-darker: #dba425;
+        }
+        
         body {
             width: 1280px;
             height: 720px;
@@ -30,13 +41,13 @@
     </style>
 </head>
 <body>
-    <div class="slide bg-gradient-to-r from-blue-50 to-blue-100 flex flex-col">
+    <div class="slide flex flex-col" style="background: linear-gradient(to right, var(--cootravir-gold-lighter), var(--cootravir-gold-light));">
         <!-- Header with logo and title -->
-        <div class="bg-blue-800 text-white py-4 px-8 flex justify-between items-center">
+        <div class="text-white py-4 px-8 flex justify-between items-center" style="background-color: var(--cootravir-blue);">
             <h1 class="text-3xl font-bold">Apoyos Adicionales y Beneficios Sin Costo</h1>
             <div class="flex items-center">
                 <span class="text-xl font-semibold mr-2">COOTRAVIR C.T.A.</span>
-                <span class="bg-white text-blue-800 px-3 py-1 rounded-full text-sm font-bold">SEGURIDAD PRIVADA</span>
+                <span class="bg-white px-3 py-1 rounded-full text-sm font-bold" style="color: var(--cootravir-blue);">SEGURIDAD PRIVADA</span>
             </div>
         </div>
         
@@ -46,16 +57,16 @@
             <div class="w-2/5 pr-4 overflow-y-auto">
                 <div class="bg-white rounded-lg shadow-lg p-4 h-full">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-sync-alt text-blue-700 text-3xl mr-3"></i>
-                        <h2 class="text-2xl font-bold text-blue-800">Reinversión en Apoyos a la Seguridad</h2>
+                        <i class="fas fa-sync-alt text-3xl mr-3" style="color: var(--cootravir-blue);"></i>
+                        <h2 class="text-2xl font-bold" style="color: var(--cootravir-blue);">Reinversión en Apoyos a la Seguridad</h2>
                     </div>
                     <p class="text-gray-600 mb-3">Según la duración del contrato, le ofrecemos valores adicionales para invertir en tecnología o para uso libre del cliente.</p>
                     <div class="mb-4">
                         <div class="h-40 w-full" id="chart-container"></div>
                     </div>
-                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                    <div class="p-3 rounded-lg" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
                         <p class="text-gray-700 text-sm">
-                            <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                            <i class="fas fa-info-circle mr-2" style="color: var(--cootravir-blue-light);"></i>
                             Nota: El valor de apoyo se recomienda utilizar en tecnología, con opción de libre destinación.
                         </p>
                     </div>
@@ -66,40 +77,40 @@
             <div class="w-3/5 pl-4 overflow-y-auto">
                 <div class="bg-white rounded-lg shadow-lg p-4 h-full">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-gift text-blue-700 text-3xl mr-3"></i>
-                        <h2 class="text-2xl font-bold text-blue-800">Herramientas de Apoyo a la Seguridad que NO generan costo</h2>
+                        <i class="fas fa-gift text-3xl mr-3" style="color: var(--cootravir-blue);"></i>
+                        <h2 class="text-2xl font-bold" style="color: var(--cootravir-blue);">Herramientas de Apoyo a la Seguridad que NO generan costo</h2>
                     </div>
                     <div class="grid grid-cols-2 gap-3">
-                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-user-tie text-blue-600 text-xl mr-3 mt-1"></i>
+                        <div class="benefit-item p-3 rounded-lg flex items-start" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <i class="fas fa-user-tie text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700 text-sm">Complementar Coordinador In House con 2 horas diurnas + 4 horas sábados</span>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-mobile-alt text-blue-600 text-xl mr-3 mt-1"></i>
+                            <i class="fas fa-mobile-alt text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700 text-sm">Celulares para Central de Monitoreo y Coordinador Operativo</span>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-exclamation-circle text-blue-600 text-xl mr-3 mt-1"></i>
+                            <i class="fas fa-exclamation-circle text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700 text-sm">Aplicación de Pánicos para locales y consultorios</span>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-doorbell text-blue-600 text-xl mr-3 mt-1"></i>
+                            <i class="fas fa-doorbell text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700 text-sm">Citófono en parqueadero para comunicación en horario nocturno</span>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-user-shield text-blue-600 text-xl mr-3 mt-1"></i>
+                            <i class="fas fa-user-shield text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700 text-sm">Coordinador de seguridad y/o Ejecutivo de cuenta</span>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-broadcast-tower text-blue-600 text-xl mr-3 mt-1"></i>
+                            <i class="fas fa-broadcast-tower text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700 text-sm">Radios de comunicación guardas de seguridad</span>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-map-marker-alt text-blue-600 text-xl mr-3 mt-1"></i>
+                            <i class="fas fa-map-marker-alt text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700 text-sm">Puntos de marcación de control de rondas</span>
                         </div>
                         <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
-                            <i class="fas fa-file-alt text-blue-600 text-xl mr-3 mt-1"></i>
+                            <i class="fas fa-file-alt text-xl mr-3 mt-1" style="color: var(--cootravir-blue-light);"></i>
                             <span class="text-gray-700 text-sm">Minuta virtual con enlace a administración</span>
                         </div>
                     </div>
@@ -154,10 +165,10 @@
             .attr("y2", "100%");
         gradient1.append("stop")
             .attr("offset", "0%")
-            .attr("stop-color", "#3b82f6");
+            .attr("stop-color", "#4a6fa5");
         gradient1.append("stop")
             .attr("offset", "100%")
-            .attr("stop-color", "#1e40af");
+            .attr("stop-color", "#0e2455");
             
         const gradient2 = defs.append("linearGradient")
             .attr("id", "gradient2")
@@ -167,10 +178,10 @@
             .attr("y2", "100%");
         gradient2.append("stop")
             .attr("offset", "0%")
-            .attr("stop-color", "#60a5fa");
+            .attr("stop-color", "#6b8bc0");
         gradient2.append("stop")
             .attr("offset", "100%")
-            .attr("stop-color", "#2563eb");
+            .attr("stop-color", "#4a6fa5");
             
         const gradient3 = defs.append("linearGradient")
             .attr("id", "gradient3")
@@ -180,10 +191,10 @@
             .attr("y2", "100%");
         gradient3.append("stop")
             .attr("offset", "0%")
-            .attr("stop-color", "#93c5fd");
+            .attr("stop-color", "#d4af37");
         gradient3.append("stop")
             .attr("offset", "100%")
-            .attr("stop-color", "#3b82f6");
+            .attr("stop-color", "#dba425");
         
         // Eje X
         g.append("g")
@@ -250,7 +261,7 @@
             .attr("text-anchor", "middle")
             .style("font-size", "13px")
             .style("font-weight", "700")
-            .style("fill", "#1e40af")
+            .style("fill", "#0e2455")
             .style("opacity", 0);
         
         labels.transition()
