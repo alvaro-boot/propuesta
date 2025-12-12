@@ -105,14 +105,15 @@
             <div class="flex items-center">
                 <i class="far fa-calendar-alt mr-2" style="color: var(--cootravir-gold);"></i>
                 <span class="text-gray-300" id="current-date"></span>
-            </div>
+            </div>image.png
         </div>
     </div>
     
     <script>
-        // Set current date
+        // Set date to December 11, 2025
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('current-date').textContent = new Date().toLocaleDateString('es-CO', options);
+        const specificDate = new Date(2025, 11, 11); // Month is 0-indexed, so 11 = December
+        document.getElementById('current-date').textContent = specificDate.toLocaleDateString('es-CO', options);
     </script>
 </body>
 </html>
