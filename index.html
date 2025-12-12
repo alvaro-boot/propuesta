@@ -58,6 +58,9 @@
             width: 1280px !important;
             height: 720px !important;
             transform-origin: center center;
+            position: relative;
+            margin: auto;
+            flex-shrink: 0;
         }
         
         /* Calcular escala automáticamente */
@@ -313,22 +316,27 @@
                 const slideHeight = 720;
                 const slideAspectRatio = slideWidth / slideHeight;
                 
-                const windowWidth = window.innerWidth;
-                const windowHeight = window.innerHeight;
-                const windowAspectRatio = windowWidth / windowHeight;
+                // Usar las dimensiones del contenedor en lugar de window para mayor precisión
+                const containerWidth = container.clientWidth || window.innerWidth;
+                const containerHeight = container.clientHeight || window.innerHeight;
+                const containerAspectRatio = containerWidth / containerHeight;
                 
                 let scale;
-                if (windowAspectRatio > slideAspectRatio) {
-                    // La ventana es más ancha, escalar basado en la altura
-                    scale = windowHeight / slideHeight;
+                if (containerAspectRatio > slideAspectRatio) {
+                    // El contenedor es más ancho que la diapositiva, escalar basado en la altura
+                    scale = containerHeight / slideHeight;
                 } else {
-                    // La ventana es más alta, escalar basado en el ancho
-                    scale = windowWidth / slideWidth;
+                    // El contenedor es más alto que la diapositiva, escalar basado en el ancho
+                    scale = containerWidth / slideWidth;
                 }
                 
+                // Aplicar transform y asegurar que el iframe esté centrado
                 slideFrame.style.transform = `scale(${scale})`;
+                slideFrame.style.transformOrigin = 'center center';
+                slideFrame.style.display = 'block';
             } else {
                 slideFrame.style.transform = 'scale(1)';
+                slideFrame.style.transformOrigin = 'center center';
             }
         }
         
@@ -340,19 +348,35 @@
             if (isFullscreen) {
                 container.classList.add('fullscreen-mode');
                 fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
-                // Pequeño delay para asegurar que el DOM se actualizó
-                setTimeout(scaleSlideFrame, 100);
+                // Múltiples intentos para asegurar que el escalado se aplique correctamente
+                setTimeout(scaleSlideFrame, 50);
+                setTimeout(scaleSlideFrame, 150);
+                setTimeout(scaleSlideFrame, 300);
             } else {
                 container.classList.remove('fullscreen-mode');
                 fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
                 slideFrame.style.transform = 'scale(1)';
+                slideFrame.style.transformOrigin = 'center center';
             }
         }
         
-        // Ajustar escala cuando se redimensiona la ventana
+        // Ajustar escala cuando se redimensiona la ventana - usar requestAnimationFrame para mejor rendimiento
+        let resizeTimeout;
         window.addEventListener('resize', () => {
             if (container.classList.contains('fullscreen-mode')) {
-                scaleSlideFrame();
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    requestAnimationFrame(scaleSlideFrame);
+                }, 100);
+            }
+        });
+        
+        // También ajustar cuando cambia la orientación
+        window.addEventListener('orientationchange', () => {
+            if (container.classList.contains('fullscreen-mode')) {
+                setTimeout(() => {
+                    requestAnimationFrame(scaleSlideFrame);
+                }, 200);
             }
         });
         
